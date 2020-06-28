@@ -14,7 +14,6 @@ class ContributingGen {
         projectRepoUrl: "https://github.com/user/slug/",
         contributing: {
             generate: true,
-            tableOfContents: true,
         },
         codeOfConduct: {
             generate: true,
@@ -51,17 +50,18 @@ class ContributingGen {
      * or a specified subfolder.
      */
     writeMarkdownFiles(subfolderName) {
-        if(subfolderName !== undefined && subfolderName && !fs.existsSync(subfolderName)) {
-            fs.mkdirSync(subfolderName)
+        if(subfolderName !== undefined && subfolderName) {
+            if(!fs.existsSync(subfolderName)) fs.mkdirSync(subfolderName)
+            subfolderName = subfolderName + "/"
         }
         if (this.specs.contributing.generate && this.markdownOutput.contributing) {
-            fs.writeFile(subfolderName + "/CONTRIBUTING.md", this.markdownOutput.contributing, "utf8", (err) => {
+            fs.writeFile(subfolderName + "CONTRIBUTING.md", this.markdownOutput.contributing, "utf8", (err) => {
                 if (err) throw err;
                 console.log('Your CONTRIBUTING.md has been saved!');
             });
         }
         if (this.specs.codeOfConduct.generate && this.markdownOutput.codeOfConduct) {
-            fs.writeFile(subfolderName + "/CODE_OF_CONDUCT.md", this.markdownOutput.codeOfConduct, "utf8", (err) => {
+            fs.writeFile(subfolderName + "CODE_OF_CONDUCT.md", this.markdownOutput.codeOfConduct, "utf8", (err) => {
                 if (err) throw err;
                 console.log('Your CODE_OF_CONDUCT.md has been saved!');
             });
