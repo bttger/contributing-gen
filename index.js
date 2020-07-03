@@ -66,7 +66,7 @@ class ContributingGen {
         if (this.specs.codeOfConduct.generate && this.markdownOutput.codeOfConduct) {
             fs.writeFile(subfolderName + "CODE_OF_CONDUCT.md", this.markdownOutput.codeOfConduct, "utf8", (err) => {
                 if (err) throw err;
-                console.log('Your CODE_OF_CONDUCT.md has been saved', subfolderName);
+                console.log('Your CODE_OF_CONDUCT.md has been saved to', subfolderName);
             });
         }
     }
