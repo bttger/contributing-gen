@@ -9,9 +9,12 @@ const dots = dot.process({ path: "./templates" })
 class ContributingGen {
     /** The default specifications */
     specs = {
-        projectName: "Our Cool Project",
-        projectSlug: "our-cool-project",
-        projectRepoUrl: "https://github.com/user/slug/",
+        project: {
+            name: "Our Cool Project",
+            slug: "our-cool-project",
+            repoUrl: "https://github.com/user/slug/",
+            docsUrl: "https://github.com/user/slug/blob/master/README.md",
+        },
         contributing: {
             generate: true,
         },
