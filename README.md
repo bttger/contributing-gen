@@ -1,7 +1,36 @@
 # Welcome to contributing-gen
 A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.
 
+> The generated artifacts should serve as basis, adviser and inspiration. We do not guarantee completeness, but a good starting point for a well-structured guide.
+
 ## Getting Started
+- Clone this repository to your local machine
+- Open your favored terminal within the project folder and run `npm install`
+- Open the `generate.js` file and insert your information
+- After you are done, get back to the terminal and run `npm run gen`
+
+In the following listing you see the specification, which you have to fill with your information:
+```javascript
+const specs = {
+    project: {
+        name: "Our Cool Project",
+        slug: "our-cool-project",
+        repoUrl: "https://github.com/user/slug/",
+        docsUrl: "https://github.com/user/slug/blob/master/README.md",
+    },
+    contributing: {
+        generate: true,
+    },
+    codeOfConduct: {
+        generate: true,
+        // enforcement email must not be omitted if 'generate' is true
+        enforcementEmail: "email@example.com",
+        // additional info about how the code of conduct will be enforced
+        enforcementGuidelines: false,
+    },
+}
+
+```
 
 ## Contributing
 We encourage you to contribute to contributing-gen! Please check out the
