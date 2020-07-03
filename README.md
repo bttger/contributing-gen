@@ -9,6 +9,8 @@ A configurable CONTRIBUTING.md generator - The guideline to communicate how peop
 - Open the `generate.js` file and insert your information
 - After you are done, get back to the terminal and run `npm run gen`
 
+The files have now been generated and you can copy them into your project repository. And don't forget to mention them in your readme.
+
 In the following listing you see the specification, which you have to fill with your information:
 ```javascript
 const specs = {
