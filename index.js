@@ -60,13 +60,13 @@ class ContributingGen {
         if (this.specs.contributing.generate && this.markdownOutput.contributing) {
             fs.writeFile(subfolderName + "CONTRIBUTING.md", this.markdownOutput.contributing, "utf8", (err) => {
                 if (err) throw err;
-                console.log('Your CONTRIBUTING.md has been saved!');
+                console.log('Your CONTRIBUTING.md has been saved to', subfolderName);
             });
         }
         if (this.specs.codeOfConduct.generate && this.markdownOutput.codeOfConduct) {
             fs.writeFile(subfolderName + "CODE_OF_CONDUCT.md", this.markdownOutput.codeOfConduct, "utf8", (err) => {
                 if (err) throw err;
-                console.log('Your CODE_OF_CONDUCT.md has been saved!');
+                console.log('Your CODE_OF_CONDUCT.md has been saved', subfolderName);
             });
         }
     }

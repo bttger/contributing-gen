@@ -4,6 +4,7 @@
   "description": "A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.",
   "main": "index.js",
   "scripts": {
+    "gen": "node generate.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
