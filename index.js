@@ -35,6 +35,9 @@ class ContributingGen {
      */
     constructor(specification) {
         this.specs = specification !== undefined ? specification : this.specs
+        if (this.specs.project.repoUrl.slice(-1) !== "/") {
+            this.specs.project.repoUrl = this.specs.project.repoUrl + "/"
+        }
     }
 
     /**
@@ -53,8 +56,8 @@ class ContributingGen {
      * or a specified subfolder.
      */
     writeMarkdownFiles(subfolderName) {
-        if(subfolderName !== undefined && subfolderName) {
-            if(!fs.existsSync(subfolderName)) fs.mkdirSync(subfolderName)
+        if (subfolderName !== undefined && subfolderName) {
+            if (!fs.existsSync(subfolderName)) fs.mkdirSync(subfolderName)
             subfolderName = subfolderName + "/"
         }
         if (this.specs.contributing.generate && this.markdownOutput.contributing) {
