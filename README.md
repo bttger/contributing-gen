@@ -52,5 +52,7 @@ For the templates we have looked at several open source projects as examples:
 - [generate-contributing](https://github.com/generate/generate-contributing/blob/master/templates/contributing.md)
 - [contributing-template](https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md)
 - [idiomatic-contributing](https://github.com/jonschlinkert/idiomatic-contributing)
+- [celery](https://github.com/celery/celery/blob/master/CONTRIBUTING.rst)
+- [ember](https://github.com/emberjs/ember.js/blob/master/CONTRIBUTING.md)
 - []()
 - []()
