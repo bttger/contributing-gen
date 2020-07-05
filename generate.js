@@ -10,6 +10,7 @@ const specs = {
     },
     contributing: {
         generate: true,
+        emailSensitiveBugs: "security@example.com",
     },
     codeOfConduct: {
         generate: true,
