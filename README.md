@@ -1,6 +1,8 @@
 # Welcome to contributing-gen
 A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.
 
+**[Generate it](https://bttger.github.io/contributing-gen-web/) directly in your browser with the [web frontend (contributing-gen-web)](https://github.com/bttger/contributing-gen-web). 🎉**
+
 > The generated artifacts should serve as basis, adviser and inspiration. We do not guarantee completeness, but a good starting point for a well-structured guide.
 
 ## Getting Started
@@ -36,10 +38,11 @@ const specs = {
 ```
 
 ## Contributing
-We encourage you to contribute to contributing-gen! Please check out the
-[Contribution Guide](https://github.com/bttger/contributing-gen/blob/master/CONTRIBUTING.md) for guidelines about how to proceed.
+Although this project should serve as a good example, we don't have an extra guideline for contributions, since the project has a small scope without any programming. Nevertheless, anyone who wants to participate, in whatever form, must follow our [Code of Conduct](https://github.com/bttger/contributing-gen/blob/master/CODE_OF_CONDUCT.md). 
 
-Everyone interacting in the contributing-gen community is expected to follow our [Code of Conduct](https://github.com/bttger/contributing-gen/blob/master/CODE_OF_CONDUCT.md).
+**Everyone who has ideas and suggestions for improvement is encouraged to contribute**. Be it with a simple issue or a pull request. Our goal is to create the best template for contribution guidelines, which helps every open source developer to create an individual guide. It should be made clear to project owners how comprehensible and simple guidelines are structured and how to encourage the community to participate in the project. And don't hesitate, even if it is just a small typo you have spotted.
+
+The community looks forward to your contributions. 🤩
 
 ## License
 contributing-gen is released under the [MIT License](https://opensource.org/licenses/MIT).
@@ -55,5 +58,3 @@ For the templates we have looked at several open source projects as examples:
 - [idiomatic-contributing](https://github.com/jonschlinkert/idiomatic-contributing)
 - [celery](https://github.com/celery/celery/blob/master/CONTRIBUTING.rst)
 - [ember](https://github.com/emberjs/ember.js/blob/master/CONTRIBUTING.md)
-- []()
-- []()
