@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/bttger/contributing-gen/issues"
   },
-  "homepage": "https://github.com/bttger/contributing-gen",
+  "homepage": "https://bttger.github.io/contributing-gen-web/",
   "dependencies": {
     "dot": "^1.1.3"
   }
