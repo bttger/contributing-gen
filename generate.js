@@ -1,29 +1,43 @@
-const ContributingGen = require(".");
+import { ContributingGen } from "./index.js";
+import { writeFile } from "./utils.js";
+import fs from "fs";
 
-// insert your information
+// Update with your project's info
 const specs = {
-    project: {
-        name: "Our Cool Project",
-        slug: "our-cool-project",
-        defaultBranch: "main",
-        repoUrl: "https://github.com/user/slug/",
-        docsUrl: "https://github.com/user/slug/blob/main/README.md",
-    },
-    contributing: {
-        generate: true,
-        emailSensitiveBugs: "security@example.com",
-    },
-    codeOfConduct: {
-        generate: true,
-        // enforcement email must not be omitted if 'generate' is true
-        enforcementEmail: "email@example.com",
-        // additional info about how the code of conduct will be enforced
-        enforcementGuidelines: false,
-    },
-}
+  project: {
+    name: "XYZ",
+    defaultBranch: "main",
+    repoUrl: "https://github.com/user/project-slug",
+    docsUrl: "https://github.com/user/project-slug/blob/main/README.md",
+  },
+  contributing: {
+    generate: true,
+    emailSensitiveBugs: "security@example.com",
+  },
+  codeOfConduct: {
+    generate: true,
+    // enforcement email must not be omitted if 'generate' is true
+    enforcementEmail: "email@example.com",
+    // additional info about how the code of conduct will be enforced
+    enforcementGuidelines: false,
+  },
+};
 
-const cg = new ContributingGen(specs)
+const contributingTemplate = fs.readFileSync(
+  "templates/contributing.dot",
+  "utf8"
+);
+const codeOfConductTemplate = fs.readFileSync(
+  "templates/codeOfConduct.dot",
+  "utf8"
+);
+const contributingGen = new ContributingGen(
+  contributingTemplate,
+  codeOfConductTemplate
+);
 
-// generate the md output and write the output to files (in dist/ folder)
-cg.generateMarkdown()
-cg.writeMarkdownFiles("dist")
+const contributingMd = contributingGen.generateContributing(specs);
+const codeOfConductMd = contributingGen.generateCodeOfConduct(specs);
+
+if (contributingMd) writeFile("out", contributingMd, "CONTRIBUTING.md");
+if (codeOfConductMd) writeFile("out", codeOfConductMd, "CODE_OF_CONDUCT.md");

@@ -1,4 +1,4 @@
-# Code of Conduct - Our Cool Project
+# Code of Conduct - XYZ
 
 ## Our Pledge
 

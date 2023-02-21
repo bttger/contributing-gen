@@ -1,8 +1,9 @@
 {
   "name": "contributing-gen",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "gen": "node generate.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,7 +23,7 @@
     "template",
     "guideline"
   ],
-  "author": "Tom C. Boettger",
+  "author": "Tom Boettger",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bttger/contributing-gen/issues"
