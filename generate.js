@@ -5,8 +5,9 @@ const specs = {
     project: {
         name: "Our Cool Project",
         slug: "our-cool-project",
+        defaultBranch: "main",
         repoUrl: "https://github.com/user/slug/",
-        docsUrl: "https://github.com/user/slug/blob/master/README.md",
+        docsUrl: "https://github.com/user/slug/blob/main/README.md",
     },
     contributing: {
         generate: true,
