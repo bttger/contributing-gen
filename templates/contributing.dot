@@ -16,7 +16,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 {{? it.codeOfConduct.generate}}
 - [Code of Conduct](#code-of-conduct){{?}}
 - [I Have a Question](#i-have-a-question)
-- [I Want To Contribute](#i-want-to-contribute)
+  - [I Want To Contribute](#i-want-to-contribute)
   - [Reporting Bugs](#reporting-bugs)
   - [Suggesting Enhancements](#suggesting-enhancements)
   - [Your First Code Contribution](#your-first-code-contribution)
@@ -30,7 +30,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 This project and everyone participating in it is governed by the
 [{{=it.project.name}} Code of Conduct]({{=it.project.repoUrl}}/blob/{{=it.project.defaultBranch}}/CODE_OF_CONDUCT.md).
-By participating, you are expected to uphold this code. Please report unacceptable behavior
+By participating, you are expected to uphold this code. Please report unacceptable behaviour
 to <{{=it.codeOfConduct.enforcementEmail}}>.
 {{?}}
 
@@ -66,7 +66,7 @@ Depending on how large the project is, you may want to outsource the questioning
 ## I Want To Contribute
 
 > ### Legal Notice <!-- omit in toc -->
-> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project license.
+> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project licence.
 
 ### Reporting Bugs
 
@@ -95,7 +95,7 @@ A good bug report shouldn't leave others needing to chase you up for more inform
 We use GitHub issues to track bugs and errors. If you run into an issue with the project:
 
 - Open an [Issue]({{=it.project.repoUrl}}/issues/new). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
-- Explain the behavior you would expect and the actual behavior.
+- Explain the behaviour you would expect and the actual behaviour.
 - Please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
 - Provide the information you collected in the previous section.
 
@@ -127,7 +127,7 @@ Enhancement suggestions are tracked as [GitHub issues]({{=it.project.repoUrl}}/i
 
 - Use a **clear and descriptive title** for the issue to identify the suggestion.
 - Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
-- **Describe the current behavior** and **explain which behavior you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
+- **Describe the current behaviour** and **explain which behaviour you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
 - You may want to **include screenshots and animated GIFs** which help you demonstrate the steps or point out the part which the suggestion is related to. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux. <!-- this should only be included if the project has a GUI -->
 - **Explain why this enhancement would be useful** to most {{=it.project.name}} users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
 
