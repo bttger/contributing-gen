@@ -1,6 +1,7 @@
 {
-  "name": "contributing-gen",
-  "version": "1.0.2",
+  "name": "@futura-dev/contributing-gen",
+  "version": "1.0.0",
+  "private": false,
   "description": "A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.",
   "main": "index.js",
   "type": "module",
@@ -10,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bttger/contributing-gen.git"
+    "url": "git+https://github.com/futura-dev/contributing-gen.git"
   },
   "keywords": [
     "contributing",
@@ -23,12 +24,15 @@
     "template",
     "guideline"
   ],
-  "author": "Tom Boettger",
+  "author": {
+    "name": "Futura",
+    "url": "https://github.com/futura-dev",
+    "email": "info@futura-dev.com"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bttger/contributing-gen/issues"
+    "url": "https://github.com/futura-dev/contributing-gen/issues"
   },
-  "homepage": "https://bttger.github.io/contributing-gen-web/",
   "dependencies": {
     "dot": "^1.1.3"
   }
