@@ -5,10 +5,12 @@ export class ContributingGen {
   /**
    * Create a new generator with pre compiled templates
    */
-  constructor(contributingTemplate, codeOfConductTemplate) {
+  constructor(contributingTemplate, codeOfConductTemplate, licenseTemplate, readmeTemplate) {
     dot.templateSettings.strip = false;
     this.contributingCompiled = dot.template(contributingTemplate);
     this.codeOfConductCompiled = dot.template(codeOfConductTemplate);
+    this.licenseCompiled = dot.template(licenseTemplate);
+    this.readmeCompiled = dot.template(readmeTemplate);
   }
 
   /**
@@ -26,5 +28,21 @@ export class ContributingGen {
   generateCodeOfConduct(specs) {
     if (!specs.codeOfConduct.generate) return "";
     return this.codeOfConductCompiled(specs);
+  }
+
+  /**
+   * Generate markdown output for the license.
+   */
+  generateLicense(specs) {
+    if (!specs.license.generate) return "";
+    return this.licenseCompiled(specs);
+  }
+
+  /**
+   * Generate markdown output for the readme.
+   */
+  generateReadme(specs) {
+    if (!specs.readme.generate) return "";
+    return this.readmeCompiled(specs);
   }
 }

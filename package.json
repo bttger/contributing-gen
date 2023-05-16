@@ -1,6 +1,6 @@
 {
   "name": "@futura-dev/contributing-gen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.",
   "main": "index.js",
