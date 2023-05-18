@@ -1,11 +1,16 @@
-"use strict";
 import dot from "dot";
+import { Specs } from "./types/specs.interface";
 
 export class ContributingGen {
+  contributingCompiled: dot.RenderFunction;
+  codeOfConductCompiled: dot.RenderFunction;
+  licenseCompiled: dot.RenderFunction;
+  readmeCompiled: dot.RenderFunction;
+
   /**
    * Create a new generator with pre compiled templates
    */
-  constructor(contributingTemplate, codeOfConductTemplate, licenseTemplate, readmeTemplate) {
+  constructor(contributingTemplate: string, codeOfConductTemplate: string, licenseTemplate: string, readmeTemplate: string) {
     dot.templateSettings.strip = false;
     this.contributingCompiled = dot.template(contributingTemplate);
     this.codeOfConductCompiled = dot.template(codeOfConductTemplate);
@@ -16,7 +21,7 @@ export class ContributingGen {
   /**
    * Generate markdown output for the contribution guidelines.
    */
-  generateContributing(specs) {
+  generateContributing(specs: Specs) {
     if (!specs.contributing.generate) return "";
     specs.project.repoUrl = specs.project.repoUrl.replace(/\/\s*$/, "");
     return this.contributingCompiled(specs);
@@ -25,7 +30,7 @@ export class ContributingGen {
   /**
    * Generate markdown output for the code of conduct.
    */
-  generateCodeOfConduct(specs) {
+  generateCodeOfConduct(specs: Specs) {
     if (!specs.codeOfConduct.generate) return "";
     return this.codeOfConductCompiled(specs);
   }
@@ -33,7 +38,7 @@ export class ContributingGen {
   /**
    * Generate markdown output for the license.
    */
-  generateLicense(specs) {
+  generateLicense(specs: Specs) {
     if (!specs.license.generate) return "";
     return this.licenseCompiled(specs);
   }
@@ -41,7 +46,7 @@ export class ContributingGen {
   /**
    * Generate markdown output for the readme.
    */
-  generateReadme(specs) {
+  generateReadme(specs: Specs) {
     if (!specs.readme.generate) return "";
     return this.readmeCompiled(specs);
   }

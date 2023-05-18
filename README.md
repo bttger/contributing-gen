@@ -1,67 +1,95 @@
-# Welcome to contributing-gen
+# Contributing Gen
 
-A CONTRIBUTING.md generator - A guideline to communicate how people should contribute to your project.
+[![Version](https://img.shields.io/github/v/release/futura-dev/contributing-gen)](https://github.com/futura-dev/contributing-gen)
+[![License](https://img.shields.io/github/license/futura-dev/contributing-gen)](https://github.com/futura-dev/contributing-gen/blob/main/LICENSE)
+[![Open Issues](https://img.shields.io/github/issues/futura-dev/contributing-gen)](https://github.com/futura-dev/contributing-gen/issues?q=is%3Aissue+is%3Aopen)
+[![Closed Issues](https://img.shields.io/github/issues-closed/futura-dev/contributing-gen)](https://github.com/futura-dev/contributing-gen/issues?q=is%3Aissue+is%3Aclosed)
 
-**[Generate it](https://bttger.github.io/contributing-gen-web/) directly in your browser with the [web frontend (contributing-gen-web)](https://github.com/bttger/contributing-gen-web). 🎉**
-
-> The generated artifacts should serve as basis, adviser and inspiration. We do not guarantee completeness, but a good starting point for a well-structured guide.
+## Table of Contents
+- [Getting Started](#getting-started)
+- [Example](#example)
+- [Code of Conduct](#code-of-conduct)
+- [Contributing](#contributing)
+- [Support](#support)
+- [License](#license)
 
 ## Getting Started
 
+This package can be installed globally or locally using:
+```sh
+    $ npm install @futura-dev/contribuiting-gen
+```
+
+Now you can use our CLI issuing:
+```sh
+    $ npx @futura-dev/contribuiting-gen generate
+```
+
+The CLI asks you to fill the points needed to generate all the files.
+At the end you'll have all the files inside the root directory.
+
+## Local configuration
+
 - Clone this repository
-- Open the terminal, cd to the project folder and run `npm install`
-- Open the `generate.js` file and update it with your project information
-- Run `npm run gen` to generate new files
+- Open the terminal, cd to the project folder, use our .nvmrc with `nvm use` to use the right node version and run `npm i`
 
-The files have now been generated and you can copy them into your project repository. And don't forget to mention them in your readme.
-
+Now you're all set to edit our project.
 In the following listing you see the specification, which you have to fill with your information:
 
-```javascript
+```typescript
 const specs = {
   project: {
-    name: "XYZ",
+    organizationName: "futura-dev",
+    name: "Contributing Gen",
+    slug: "contributing-gen",
     defaultBranch: "main",
-    repoUrl: "https://github.com/user/project-slug/",
-    docsUrl: "https://github.com/user/project-slug/blob/main/README.md",
+    repoUrl: "https://github.com/futura-dev/contributing-gen/",
+    docsUrl: "https://github.com/futura-dev/contributing-gen/blob/main/README.md"
   },
   contributing: {
     generate: true,
-    emailSensitiveBugs: "security@example.com",
+    emailSensitiveBugs: "opensource@futura-dev.com",
   },
   codeOfConduct: {
-    generate: true,
-    // enforcement email must not be omitted if 'generate' is true
-    enforcementEmail: "email@example.com",
-    // additional info about how the code of conduct will be enforced
-    enforcementGuidelines: false,
+    generate: true
   },
-};
+  license: {
+    generate: true
+  },
+  readme: {
+    generate: true,
+    supportEmail: "opensource@futura-dev.com"
+  }
+}
 ```
+## Example
+
+## Code of Conduct
+As contributors and maintainers of this open-source web project, we pledge to provide a welcoming and inclusive environment for everyone. We value the participation of individuals from diverse backgrounds and perspectives and aim to foster a respectful and harassment-free community.
+
+To ensure a positive experience for all community members, we have established the following code of conduct that applies to all project-related activities and interactions, both online and offline. By participating in this project, you are expected to uphold these [guidelines](https://github.com/futura-dev/contributing-gen/blob/main/CODE_OF_CONDUCT.md).
 
 ## Contributing
+Thank you for considering contributing to this open-source web project! We appreciate your interest and support. To ensure a smooth collaboration process, please follow the [guidelines](https://github.com/futura-dev/contributing-gen/blob/main/CONTRIBUTING.md)
 
-Although this project should serve as a good example, we don't have an extra guideline for contributions, since the project has a small scope without any programming. Nevertheless, anyone who wants to participate, in whatever form, must follow our [Code of Conduct](https://github.com/bttger/contributing-gen/blob/master/CODE_OF_CONDUCT.md).
+## Support
+Please write to  if you need help or just open an issue using the .
 
-**Everyone who has ideas and suggestions for improvement is encouraged to contribute**. Be it with a simple issue or a pull request. Our goal is to create the best template for contribution guidelines, which helps every open source developer to create an individual guide. It should be made clear to project owners how comprehensible and simple guidelines are structured and how to encourage the community to participate in the project. And don't hesitate, even if it is just a small typo you have spotted.
+## Support
 
-The community looks forward to your contributions. 🤩
+If you need assistance, have questions, or want to provide feedback related to this open-source web project, there are several ways to get support:
+
+- **Issue Tracker**: Check the project's issue tracker on [GitHub](https://github.com/futura-dev/contributing-gen/issues) to see if your question or issue has already been addressed. If not, feel free to open a new issue with a detailed description.
+
+- **Email**: You can also reach out to the project maintainers directly via email at (opensource@futura-dev.com)[mailto:opensource@futura-dev.com]. Please allow for a reasonable response time.
+
+Before seeking support, make sure to review the project's documentation and readme file, as they may contain helpful information and answers to common questions.
+
+When seeking support or reporting issues, please provide as much relevant information as possible, such as the version of the project you are using, the steps to reproduce the problem, and any error messages encountered. This will help us better understand and assist you with your query.
+
+While we strive to provide timely and helpful support, please note that response times may vary depending on the availability of project maintainers and the complexity of the issue.
+
+We appreciate your interest in this project and look forward to assisting you!
 
 ## License
-
-contributing-gen is released under the [MIT License](https://opensource.org/licenses/MIT).
-
-## Acknowledgment
-
-For the templates we have looked at several open source projects:
-
-- [Ruby on Rails](https://github.com/rails/rails/blob/master/CONTRIBUTING.md)
-- [Open Government](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md)
-- [Atom](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
-- [weallcontribute](https://github.com/WeAllJS/weallcontribute/blob/latest/CONTRIBUTING.md)
-- [generate-contributing](https://github.com/generate/generate-contributing/blob/master/templates/contributing.md)
-- [contributing-template](https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md)
-- [idiomatic-contributing](https://github.com/jonschlinkert/idiomatic-contributing)
-- [Celery](https://github.com/celery/celery/blob/master/CONTRIBUTING.rst)
-- [Ember](https://github.com/emberjs/ember.js/blob/master/CONTRIBUTING.md)
-- [Bootstrap](https://github.com/twbs/bootstrap/blob/main/.github/CONTRIBUTING.md)
+This project is under MIT License. Please check our [LICENSE](https://github.com/futura-dev/contributing-gen/blob/main/LICENSE) page.
