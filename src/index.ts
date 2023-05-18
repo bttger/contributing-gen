@@ -1,5 +1,4 @@
 import dot from "dot";
-import fs from "fs";
 import { Specs } from "./types/specs.interface";
 
 export class ContributingGen {

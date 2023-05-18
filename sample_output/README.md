@@ -31,7 +31,7 @@ If you need assistance, have questions, or want to provide feedback related to t
 
 - **Issue Tracker**: Check the project's issue tracker on [GitHub](https://github.com/futura-dev/contributing-gen/issues) to see if your question or issue has already been addressed. If not, feel free to open a new issue with a detailed description.
 
-- **Email**: You can also reach out to the project maintainers directly via email at (opensource@futura-dev.com)[mailto:opensource@futura-dev.com]. Please allow for a reasonable response time.
+- **Email**: You can also reach out to the project maintainers directly via email at opensource@futura-dev.com. Please allow for a reasonable response time.
 
 Before seeking support, make sure to review the project's documentation and readme file, as they may contain helpful information and answers to common questions.
 

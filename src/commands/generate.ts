@@ -9,7 +9,7 @@ export const generate = async (): Promise<void> => {
     // Project configurations
     const organizationName = await prompts.input({ message: 'Insert the GitHub organization name:', default: 'futura-dev' });
     const projectName = await prompts.input({ message: 'Insert the project name:' });
-    const projectSlug = await prompts.input({ message: 'Insert the project slug (name of the repository):', default: `${projectName.toLowerCase().replace(" ", "-")}` });
+    const projectSlug = await prompts.input({ message: 'Insert the project slug (name of the repository):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
     const defaultBranch = await prompts.input({ message: 'Insert the default branch:', default: 'main' });
     const repoUrl = await prompts.input({ message: 'Insert the repository URL:', default: `https://github.com/futura-dev/${projectSlug}` });
     const docsUrl = await prompts.input({ message: 'Insert the documentation URL (README):', default: `${repoUrl}/blob/${defaultBranch}/README.md` });
