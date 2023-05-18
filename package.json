@@ -45,7 +45,8 @@
     "@types/signale": "^1.4.4",
     "commander": "^10.0.1",
     "dot": "^1.1.3",
-    "signale": "^1.4.0"
+    "signale": "^1.4.0",
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@futura-dev/cosmodrome": "^1.1.4",
@@ -55,7 +56,6 @@
     "eslint": "^7.32.0",
     "fp-ts": "^2.15.0",
     "ts-node": "^10.9.1",
-    "tslib": "^2.5.0",
     "tsx": "^3.12.7",
     "typescript": "^4.9.5"
   },
