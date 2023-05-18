@@ -3,7 +3,7 @@
   "version": "2.0.2",
   "private": false,
   "description": "A configurable contribution files generator- The guideline to communicate how people should contribute to Futura's project.",
-  "main": "dist/cli.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint . --ext .ts --config .eslintrc",
     "build": "rm -rf dist && npx tsc && cp -r src/templates/ dist/templates/",
