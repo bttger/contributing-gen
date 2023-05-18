@@ -73,9 +73,6 @@ To ensure a positive experience for all community members, we have established t
 Thank you for considering contributing to this open-source web project! We appreciate your interest and support. To ensure a smooth collaboration process, please follow the [guidelines](https://github.com/futura-dev/contributing-gen/blob/main/CONTRIBUTING.md)
 
 ## Support
-Please write to  if you need help or just open an issue using the .
-
-## Support
 
 If you need assistance, have questions, or want to provide feedback related to this open-source web project, there are several ways to get support:
 
