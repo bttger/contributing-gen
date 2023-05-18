@@ -24,11 +24,11 @@ export const generate = async (): Promise<void> => {
 
     // STEP 2
     // Code of Conduct
-    const doesCodeOfConduct = await prompts.confirm({ message: 'Do you want to create the CODEOFCONDUCT.md file ?' });
+    const doesCodeOfConduct = await prompts.confirm({ message: 'Do you want to create the CODE_OF_CONDUCT.md file ?' });
 
     // STEP 3
     // LICENSE
-    const doesLicense = await prompts.confirm({ message: 'Do you want to create the LICENSE.md file ?' });
+    const doesLicense = await prompts.confirm({ message: 'Do you want to create the LICENSE file ?' });
 
     // STEP 4
     // README

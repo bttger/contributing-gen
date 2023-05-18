@@ -2,23 +2,6 @@ import dot from "dot";
 import fs from "fs";
 import { Specs } from "./types/specs.interface";
 
-const contributingTemplate = fs.readFileSync(
-  `${__dirname}/templates/contributing.dot`,
-  "utf8"
-);
-const codeOfConductTemplate = fs.readFileSync(
-  `${__dirname}/templates/codeOfConduct.dot`,
-  "utf8"
-);
-const licenseTemplate = fs.readFileSync(
-  `${__dirname}/templates/license.dot`,
-  "utf8"
-);
-const readmeTemplate = fs.readFileSync(
-  `${__dirname}/templates/readme.dot`,
-  "utf8"
-);
-
 export class ContributingGen {
   contributingCompiled: dot.RenderFunction;
   codeOfConductCompiled: dot.RenderFunction;
@@ -69,5 +52,3 @@ export class ContributingGen {
     return this.readmeCompiled(specs);
   }
 }
-
-export const ContributingGenInstance = new ContributingGen(contributingTemplate, codeOfConductTemplate, licenseTemplate, readmeTemplate);
