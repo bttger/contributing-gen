@@ -108,3 +108,6 @@ dist
 
 # Dist
 out/
+
+# Cosmodrome
+.cosmodrome.json
