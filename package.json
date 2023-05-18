@@ -2,12 +2,13 @@
   "name": "@futura-dev/contributing-gen",
   "version": "1.0.1",
   "private": false,
-  "description": "A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.",
-  "main": "index.js",
-  "type": "module",
+  "description": "A configurable contribution files generator- The guideline to communicate how people should contribute to Futura's project.",
+  "main": "dist/cli.js",
   "scripts": {
-    "gen": "node generate.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "build": "rm -rf dist && npx tsc && cp -r src/templates/ dist/templates/",
+    "cli": "NODE_ENV=development node ./dist/cli.js",
+    "release": "npx @futura-dev/cosmodrome release"
   },
   "repository": {
     "type": "git",
@@ -29,11 +30,36 @@
     "url": "https://github.com/futura-dev",
     "email": "info@futura-dev.com"
   },
+  "files": [
+    "/dist"
+  ],
+  "bin": {
+    "@futura-dev/contributing-gen": "dist/cli.js"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/futura-dev/contributing-gen/issues"
   },
   "dependencies": {
-    "dot": "^1.1.3"
+    "@inquirer/prompts": "^1.1.3",
+    "@types/signale": "^1.4.4",
+    "commander": "^10.0.1",
+    "dot": "^1.1.3",
+    "signale": "^1.4.0"
+  },
+  "devDependencies": {
+    "@futura-dev/cosmodrome": "^1.1.4",
+    "@types/dot": "^1.1.5",
+    "@types/mute-stream": "^0.0.1",
+    "@types/node": "^16.18.29",
+    "eslint": "^7.32.0",
+    "fp-ts": "^2.15.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "tsx": "^3.12.7",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

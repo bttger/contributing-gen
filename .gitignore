@@ -106,5 +106,5 @@ dist
 # VSCode
 .vscode
 
-notes.txt
+# Dist
 out/
