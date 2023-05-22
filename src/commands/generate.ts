@@ -27,7 +27,7 @@ export const generate = async (): Promise<void> => {
         monorepo: false,
     }
     console.log("");
-    
+
     // is a monorepo ?
     let workspaces = p_json.workspaces
     if (isArray(workspaces)) {
@@ -52,16 +52,16 @@ export const generate = async (): Promise<void> => {
 
         // STEP 0
         // Project configurations
-        const projectName = await prompts.input({ message: 'Insert the project name:' });
-        const projectSlug = await prompts.input({ message: 'Insert the project slug (name of the project in package.json):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
-        const docsUrl = await prompts.input({ message: 'Insert the documentation URL (README):', default: _config.monorepo ? `${repoUrl}/blob/${defaultBranch}/packages/${projectSlug}/README.md` : `${repoUrl}/blob/${defaultBranch}/README.md` });
+        const projectName = (await prompts.input({ message: 'Insert the project name:' })).trim();
+        const projectSlug = (await prompts.input({ message: 'Insert the project slug (name of the project in package.json):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` })).trim();
+        const docsUrl = (await prompts.input({ message: 'Insert the documentation URL (README):', default: _config.monorepo ? `${repoUrl}/blob/${defaultBranch}/packages/${projectSlug}/README.md` : `${repoUrl}/blob/${defaultBranch}/README.md` })).trim();
 
         // STEP 1
         // Contribuiting
         const doesContribuiting = await prompts.confirm({ message: 'Do you want to create the CONTRIBUITING.md file ?' });
         let emailSensitiveBugs: string = "";
         if (doesContribuiting) {
-            emailSensitiveBugs = await prompts.input({ message: 'Insert the email for sensitive bugs:', default: 'opensource@futura-dev.com' });
+            emailSensitiveBugs = (await prompts.input({ message: 'Insert the email for sensitive bugs:', default: 'opensource@futura-dev.com' })).trim();
         }
 
         // STEP 2
@@ -77,7 +77,7 @@ export const generate = async (): Promise<void> => {
         const doesReadme = await prompts.confirm({ message: 'Do you want to create the README.md file ?' });
         let supportEmail: string = "";
         if (doesReadme) {
-            supportEmail = await prompts.input({ message: 'Insert the email for support:', default: 'opensource@futura-dev.com' });
+            supportEmail = (await prompts.input({ message: 'Insert the email for support:', default: 'opensource@futura-dev.com' })).trim();
         }
 
         const contributingTemplate = fs.readFileSync(
