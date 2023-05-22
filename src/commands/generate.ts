@@ -7,6 +7,13 @@ import { root_package_json_schema, workspace_package_json_schema } from '../util
 import { isArray } from "../utils/function.util";
 
 export const generate = async (): Promise<void> => {
+
+    // Global configurations
+    const organizationName = await prompts.input({ message: 'Insert the GitHub organization name:', default: 'futura-dev' });
+    const repositorySlug = await prompts.input({ message: 'Insert the repository slug slug (name of the repository on github):' });
+    const defaultBranch = await prompts.input({ message: 'Insert the default branch:', default: 'main' });
+    const repoUrl = `https://github.com/${organizationName}/${repositorySlug}`;
+
     // Load configuration
     // load and validate the root package.json
     const p_json = root_package_json_schema.parse(
@@ -33,22 +40,19 @@ export const generate = async (): Promise<void> => {
                 }),
         })
         // update config
-        _config.run = workspace
+        _config.run = workspace.concat(".")
         _config.monorepo = true
     }
 
-    _config.run.forEach(async (configPath: string) => {
+    for (const configPath of _config.run) {
         if (_config.monorepo) console.log(`Creating contributing files for ${configPath}`);
 
         // STEP 0
         // Project configurations
-        const organizationName = await prompts.input({ message: 'Insert the GitHub organization name:', default: 'futura-dev' });
         const projectName = await prompts.input({ message: 'Insert the project name:' });
         const projectSlug = await prompts.input({ message: 'Insert the project slug (name of the project in package.json):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
-        const repositorySlug = await prompts.input({ message: 'Insert the repository slug slug (name of the repository on github):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
-        const defaultBranch = await prompts.input({ message: 'Insert the default branch:', default: 'main' });
-        const repoUrl = `https://github.com/${organizationName}/${repositorySlug}`;
-        const docsUrl = await prompts.input({ message: 'Insert the documentation URL (README):', default: `${repoUrl}/blob/${defaultBranch}/README.md` });
+
+        const docsUrl = await prompts.input({ message: 'Insert the documentation URL (README):', default: _config.monorepo ? `${repoUrl}/blob/${defaultBranch}/packages/${projectSlug}/README.md` : `${repoUrl}/blob/${defaultBranch}/README.md` });
 
         // STEP 1
         // Contribuiting
@@ -137,9 +141,7 @@ export const generate = async (): Promise<void> => {
 
         console.log("");
         console.log("");
-    })
-
-
+    }
 
     console.log('Contribution files successfully created 🚀')
     return Promise.resolve()
