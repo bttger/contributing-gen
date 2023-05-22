@@ -10,7 +10,7 @@ export const generate = async (): Promise<void> => {
 
     // Global configurations
     const organizationName = await prompts.input({ message: 'Insert the GitHub organization name:', default: 'futura-dev' });
-    const repositorySlug = await prompts.input({ message: 'Insert the repository slug slug (name of the repository on github):' });
+    const repositorySlug = await prompts.input({ message: 'Insert the repository slug (name of the repository on github):' });
     const defaultBranch = await prompts.input({ message: 'Insert the default branch:', default: 'main' });
     const repoUrl = `https://github.com/${organizationName}/${repositorySlug}`;
 
@@ -26,23 +26,26 @@ export const generate = async (): Promise<void> => {
         run: ['.'],
         monorepo: false,
     }
-
+    console.log("");
+    
     // is a monorepo ?
-    const workspaces = p_json.workspaces
+    let workspaces = p_json.workspaces
     if (isArray(workspaces)) {
+        workspaces = workspaces.concat(".")
         const workspace = await prompts.checkbox({
             message: 'Choose the workspace(s):',
             choices:
                 workspaces.map((workspace_path: string) => {
                     return {
-                        value: workspace_path,
+                        value: workspace_path
                     }
                 }),
         })
         // update config
-        _config.run = workspace.concat(".")
-        _config.monorepo = true
+        _config.run = workspace;
+        _config.monorepo = true;
     }
+    console.log("");
 
     for (const configPath of _config.run) {
         if (_config.monorepo) console.log(`Creating contributing files for ${configPath}`);
@@ -51,7 +54,6 @@ export const generate = async (): Promise<void> => {
         // Project configurations
         const projectName = await prompts.input({ message: 'Insert the project name:' });
         const projectSlug = await prompts.input({ message: 'Insert the project slug (name of the project in package.json):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
-
         const docsUrl = await prompts.input({ message: 'Insert the documentation URL (README):', default: _config.monorepo ? `${repoUrl}/blob/${defaultBranch}/packages/${projectSlug}/README.md` : `${repoUrl}/blob/${defaultBranch}/README.md` });
 
         // STEP 1
@@ -139,7 +141,6 @@ export const generate = async (): Promise<void> => {
         if (licenseMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : `${configPath}`}`, licenseMd, "LICENSE");
         if (readmeMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : `${configPath}`}`, readmeMd, "README.md");
 
-        console.log("");
         console.log("");
     }
 
