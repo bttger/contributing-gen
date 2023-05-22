@@ -1,12 +1,12 @@
 # {{=it.project.name}}
 
 {{? it.project.monorepo }}
-[![Version](https://img.shields.io/github/v/release//)](https://img.shields.io/github/package-json/v/{{=it.project.organizationName}}/{{=it.project.respositorySlug}}?filename=packages%2F{{it.project.name}}%2Fpackage.json)
+[![Version](https://img.shields.io/github/v/release/{{=it.project.organizationName}}/{{=it.project.repositorySlug}})]({{=it.project.repoUrl}})
+[![License](https://img.shields.io/github/license/{{=it.project.organizationName}}/{{=it.project.repositorySlug}})]({{=it.project.repoUrl}}/blob/{{=it.project.defaultBranch}}/LICENSE)
+[![Open Issues](https://img.shields.io/github/issues/{{=it.project.organizationName}}/{{=it.project.repositorySlug}})]({{=it.project.repoUrl}}/issues?q=is%3Aissue+is%3Aopen)
+[![Closed Issues](https://img.shields.io/github/issues-closed/{{=it.project.organizationName}}/{{=it.project.repositorySlug}})]({{=it.project.repoUrl}}/issues?q=is%3Aissue+is%3Aclosed)
 {{??}}
-[![Version](https://img.shields.io/github/v/release/{{=it.project.organizationName}}/{{=it.project.respositorySlug}})]({{=it.project.repoUrl}})
-[![License](https://img.shields.io/github/license/{{=it.project.organizationName}}/{{=it.project.respositorySlug}})]({{=it.project.repoUrl}}/blob/{{=it.project.defaultBranch}}/LICENSE)
-[![Open Issues](https://img.shields.io/github/issues/{{=it.project.organizationName}}/{{=it.project.respositorySlug}})]({{=it.project.repoUrl}}/issues?q=is%3Aissue+is%3Aopen)
-[![Closed Issues](https://img.shields.io/github/issues-closed/{{=it.project.organizationName}}/{{=it.project.respositorySlug}})]({{=it.project.repoUrl}}/issues?q=is%3Aissue+is%3Aclosed)
+[![Version](https://img.shields.io/github/v/release//)](https://img.shields.io/github/package-json/v/{{=it.project.organizationName}}/{{=it.project.repositorySlug}}?filename=packages%2F{{it.project.name}}%2Fpackage.json)
 {{?}}
 
 ## Table of Contents
