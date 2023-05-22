@@ -1,6 +1,6 @@
 {
   "name": "@futura-dev/contributing-gen",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "private": false,
   "description": "A configurable contribution files generator- The guideline to communicate how people should contribute to Futura's project.",
   "main": "dist/index.js",
