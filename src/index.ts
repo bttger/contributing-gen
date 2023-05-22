@@ -22,7 +22,7 @@ export class ContributingGen {
    * Generate markdown output for the contribution guidelines.
    */
   generateContributing(specs: Specs) {
-    if (!specs.contributing.generate) return "";
+    if (!specs.contributing.generate) return null;
     specs.project.repoUrl = specs.project.repoUrl.replace(/\/\s*$/, "");
     return this.contributingCompiled(specs);
   }
@@ -31,7 +31,7 @@ export class ContributingGen {
    * Generate markdown output for the code of conduct.
    */
   generateCodeOfConduct(specs: Specs) {
-    if (!specs.codeOfConduct.generate) return "";
+    if (!specs.codeOfConduct.generate) return null;
     return this.codeOfConductCompiled(specs);
   }
 
@@ -39,7 +39,7 @@ export class ContributingGen {
    * Generate markdown output for the license.
    */
   generateLicense(specs: Specs) {
-    if (!specs.license.generate) return "";
+    if (!specs.license.generate) return null;
     return this.licenseCompiled(specs);
   }
 
@@ -47,7 +47,7 @@ export class ContributingGen {
    * Generate markdown output for the readme.
    */
   generateReadme(specs: Specs) {
-    if (!specs.readme.generate) return "";
+    if (!specs.readme.generate) return null;
     return this.readmeCompiled(specs);
   }
 }

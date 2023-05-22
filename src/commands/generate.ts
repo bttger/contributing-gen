@@ -94,8 +94,8 @@ export const generate = async (): Promise<void> => {
 
     if (contributingMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, contributingMd, "CONTRIBUTING.md");
     if (codeOfConductMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, codeOfConductMd, "CODE_OF_CONDUCT.md");
-    if (codeOfConductMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, licenseMd, "LICENSE");
-    if (codeOfConductMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, readmeMd, "README.md");
+    if (licenseMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, licenseMd, "LICENSE");
+    if (readmeMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, readmeMd, "README.md");
 
     console.log('Contribution files successfully created 🚀')
     return Promise.resolve()

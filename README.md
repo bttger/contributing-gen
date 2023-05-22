@@ -17,12 +17,12 @@
 
 This package can be installed globally or locally using:
 ```sh
-    $ npm install @futura-dev/contribuiting-gen
+    $ npm install @futura-dev/contributing-gen
 ```
 
 Now you can use our CLI issuing:
 ```sh
-    $ npx @futura-dev/contribuiting-gen generate
+    $ npx @futura-dev/contributing-gen generate
 ```
 
 The CLI asks you to fill the points needed to generate all the files.
