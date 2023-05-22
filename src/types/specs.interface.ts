@@ -10,9 +10,11 @@ export interface Specs {
     organizationName: string;
     name: string;
     slug: string;
+    repositorySlug: string;
     defaultBranch: string;
     repoUrl: string;
     docsUrl: string;
+    monorepo: boolean;
   }
   
   export interface Contributing {

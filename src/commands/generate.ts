@@ -3,15 +3,48 @@ import * as prompts from '@inquirer/prompts';
 import fs from "fs";
 import { ContributingGen } from "..";
 import { writeFile } from "../utils/file.util";
+import {root_package_json_schema, workspace_package_json_schema} from '../utils/validation/package-json'
+import { isArray } from "../utils/function.util";
 
 export const generate = async (): Promise<void> => {
+    // Load configuration
+    // load and validate the root package.json
+    const p_json = root_package_json_schema.parse(
+        JSON.parse(
+          fs.readFileSync('./package.json', {encoding: 'utf-8'}),
+        ),
+      )
+  
+      const _config = {
+        run: '.',
+        monorepo: false,
+      }
+  
+      // is a monorepo ?
+      const workspaces = p_json.workspaces
+      if (isArray(workspaces)) {
+        const workspace = await prompts.select({
+          message: 'Choose the workspace',
+          choices:
+            workspaces.map((workspace_path: string) => {
+              return {
+                value: workspace_path,
+              }
+            }),
+        })
+        // update config
+        _config.run = workspace
+        _config.monorepo = true
+      }
+
     // STEP 0
     // Project configurations
     const organizationName = await prompts.input({ message: 'Insert the GitHub organization name:', default: 'futura-dev' });
     const projectName = await prompts.input({ message: 'Insert the project name:' });
-    const projectSlug = await prompts.input({ message: 'Insert the project slug (name of the repository):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
+    const projectSlug = await prompts.input({ message: 'Insert the project slug (name of the project in package.json):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
+    const repositorySlug = await prompts.input({ message: 'Insert the repository slug slug (name of the repository on github):', default: `${projectName.toLowerCase().replace(new RegExp(" ", "g"), "-")}` });
     const defaultBranch = await prompts.input({ message: 'Insert the default branch:', default: 'main' });
-    const repoUrl = await prompts.input({ message: 'Insert the repository URL:', default: `https://github.com/futura-dev/${projectSlug}` });
+    const repoUrl = `https://github.com/${organizationName}/${repositorySlug}`;
     const docsUrl = await prompts.input({ message: 'Insert the documentation URL (README):', default: `${repoUrl}/blob/${defaultBranch}/README.md` });
 
     // STEP 1
@@ -67,19 +100,21 @@ export const generate = async (): Promise<void> => {
             organizationName,
             name: projectName,
             slug: projectSlug,
+            repositorySlug,
             defaultBranch,
             repoUrl: repoUrl,
             docsUrl: docsUrl,
+            monorepo: _config.monorepo
         },
         contributing: {
             generate: doesContribuiting,
-            emailSensitiveBugs: emailSensitiveBugs,
+            emailSensitiveBugs: emailSensitiveBugs
         },
         codeOfConduct: {
-            generate: doesCodeOfConduct,
+            generate: doesCodeOfConduct
         },
         license: {
-            generate: doesLicense,
+            generate: doesLicense
         },
         readme: {
             generate: doesReadme,
@@ -92,10 +127,10 @@ export const generate = async (): Promise<void> => {
     const licenseMd = contributingGen.generateLicense(specs);
     const readmeMd = contributingGen.generateReadme(specs);
 
-    if (contributingMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, contributingMd, "CONTRIBUTING.md");
-    if (codeOfConductMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, codeOfConductMd, "CODE_OF_CONDUCT.md");
-    if (licenseMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, licenseMd, "LICENSE");
-    if (readmeMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : ''}`, readmeMd, "README.md");
+    if (contributingMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : `${_config.run}`}`, contributingMd, "CONTRIBUTING.md");
+    if (codeOfConductMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : `${_config.run}`}`, codeOfConductMd, "CODE_OF_CONDUCT.md");
+    if (licenseMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : `${_config.run}`}`, licenseMd, "LICENSE");
+    if (readmeMd) writeFile(`${process.env.NODE_ENV === 'development' ? 'out' : `${_config.run}`}`, readmeMd, "README.md");
 
     console.log('Contribution files successfully created 🚀')
     return Promise.resolve()
