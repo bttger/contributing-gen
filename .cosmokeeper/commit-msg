@@ -1,0 +1,21 @@
+#! /bin/sh
+
+# TODO: insert here an explanation
+# TODO: insert here the checks ( node installed, correct node version, ...)
+
+GIT_ROOT=$(git rev-parse --show-toplevel)
+
+exec < /dev/tty
+
+if ! npx --no tsx $GIT_ROOT/.cosmokeeper/bin/commit-msg.ts;
+then
+  exit 1
+fi
+
+# Check conventional commit
+if ! npx --no -- commitlint --edit "$1";
+then
+  exit 1
+fi
+
+exit 0

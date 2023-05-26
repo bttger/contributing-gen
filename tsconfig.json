@@ -9,6 +9,6 @@
     "strict": true,
     "target": "ES2021",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   }
 }

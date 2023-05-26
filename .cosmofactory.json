@@ -1,0 +1,7 @@
+{
+  "files": {
+    "package.json": "./",
+    "src/templates": "./templates"
+  },
+  "tailwind": false
+}

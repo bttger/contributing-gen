@@ -5,10 +5,12 @@
   "description": "A configurable contribution files generator- The guideline to communicate how people should contribute to Futura's project.",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint . --ext .ts --config .eslintrc",
-    "build": "rm -rf dist && npx tsc && cp -r src/templates/ dist/templates/",
-    "cli": "NODE_ENV=development node ./dist/cli.js",
-    "release": "npx @futura-dev/cosmodrome release"
+    "build": "rm -rf dist && npx @futura-dev/cosmofactory build",
+    "release": "npx @futura-dev/cosmodrome release",
+    "lint": "eslint ./src --ext .ts --config .eslintrc.cjs",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:beautify": "npm run lint:fix && prettier ./src --write",
+    "cli": "NODE_ENV=development node ./dist/cli.js"
   },
   "repository": {
     "type": "git",
@@ -51,15 +53,18 @@
   },
   "devDependencies": {
     "@futura-dev/cosmodrome": "^1.1.4",
+    "@futura-dev/cosmofactory": "^0.2.0",
+    "@futura-dev/cosmokeeper": "^0.1.2",
+    "@futura-dev/eslint-config-typescript": "^0.1.1",
     "@types/dot": "^1.1.5",
     "@types/mute-stream": "^0.0.1",
     "@types/node": "^16.18.29",
-    "eslint": "^7.32.0",
     "fp-ts": "^2.15.0",
     "ts-node": "^10.9.1",
     "tsx": "^3.12.7",
     "typescript": "^4.9.5"
   },
+  "prettier": "@futura-dev/eslint-config-typescript/.prettierrc.js",
   "engines": {
     "node": ">=18"
   }

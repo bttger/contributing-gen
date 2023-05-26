@@ -6,6 +6,7 @@
 [![Closed Issues](https://img.shields.io/github/issues-closed/futura-dev/contributing-gen)](https://github.com/futura-dev/contributing-gen/issues?q=is%3Aissue+is%3Aclosed)
 
 ## Table of Contents
+
 - [Getting Started](#getting-started)
 - [Example](#example)
 - [Code of Conduct](#code-of-conduct)
@@ -16,11 +17,13 @@
 ## Getting Started
 
 This package can be installed globally or locally using:
+
 ```sh
     $ npm install @futura-dev/contributing-gen
 ```
 
 Now you can use our CLI issuing:
+
 ```sh
     $ npx @futura-dev/contributing-gen generate
 ```
@@ -44,11 +47,12 @@ const specs = {
     slug: "contributing-gen",
     defaultBranch: "main",
     repoUrl: "https://github.com/futura-dev/contributing-gen/",
-    docsUrl: "https://github.com/futura-dev/contributing-gen/blob/main/README.md"
+    docsUrl:
+      "https://github.com/futura-dev/contributing-gen/blob/main/README.md"
   },
   contributing: {
     generate: true,
-    emailSensitiveBugs: "opensource@futura-dev.com",
+    emailSensitiveBugs: "opensource@futura-dev.com"
   },
   codeOfConduct: {
     generate: true
@@ -60,16 +64,19 @@ const specs = {
     generate: true,
     supportEmail: "opensource@futura-dev.com"
   }
-}
+};
 ```
+
 ## Example
 
 ## Code of Conduct
+
 As contributors and maintainers of this open-source web project, we pledge to provide a welcoming and inclusive environment for everyone. We value the participation of individuals from diverse backgrounds and perspectives and aim to foster a respectful and harassment-free community.
 
 To ensure a positive experience for all community members, we have established the following code of conduct that applies to all project-related activities and interactions, both online and offline. By participating in this project, you are expected to uphold these [guidelines](https://github.com/futura-dev/contributing-gen/blob/main/CODE_OF_CONDUCT.md).
 
 ## Contributing
+
 Thank you for considering contributing to this open-source web project! We appreciate your interest and support. To ensure a smooth collaboration process, please follow the [guidelines](https://github.com/futura-dev/contributing-gen/blob/main/CONTRIBUTING.md)
 
 ## Support
@@ -89,4 +96,5 @@ While we strive to provide timely and helpful support, please note that response
 We appreciate your interest in this project and look forward to assisting you!
 
 ## License
+
 This project is under MIT License. Please check our [LICENSE](https://github.com/futura-dev/contributing-gen/blob/main/LICENSE) page.

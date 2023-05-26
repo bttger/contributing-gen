@@ -10,7 +10,12 @@ export class ContributingGen {
   /**
    * Create a new generator with pre compiled templates
    */
-  constructor(contributingTemplate: string, codeOfConductTemplate: string, licenseTemplate: string, readmeTemplate: string) {
+  constructor(
+    contributingTemplate: string,
+    codeOfConductTemplate: string,
+    licenseTemplate: string,
+    readmeTemplate: string
+  ) {
     dot.templateSettings.strip = false;
     this.contributingCompiled = dot.template(contributingTemplate);
     this.codeOfConductCompiled = dot.template(codeOfConductTemplate);
