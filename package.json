@@ -1,6 +1,6 @@
 {
   "name": "contributing-gen",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A configurable CONTRIBUTING.md generator - The guideline to communicate how people should contribute to your project.",
   "main": "index.js",
   "type": "module",
